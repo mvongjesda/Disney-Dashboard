@@ -1,26 +1,22 @@
+// Filters Disney movies that earned more than $180,000,000
 function filterMovieEarnings(movie) {
-    return movie.Total_Gross > 150000000;
+    return movie.Total_Gross > 180000000;
   }
   
   var filteredMovies = data.filter(filterMovieEarnings);
   
-  // console.log(filteredMovies);
-  
-  var titles = filteredMovies.map(movies =>  movies.Movie_Title);
-  
-  // console.log(titles);
+  var titles = filteredMovies.map(movies => movies.Movie_Title);
   
   var earnings = filteredMovies.map(movies => movies.Total_Gross);
-  
-  // console.log(earnings);
-  
+
+// Movies with hight otal earnings bar chart
   var trace = {
     x: titles,
     y: earnings,
     type: "bar"
   };
   
-  var data = [trace];
+  var info = [trace];
   
   var layout = {
     title: "The Highest Grossing Disney Movies",
@@ -28,4 +24,59 @@ function filterMovieEarnings(movie) {
     yaxis: { title: "Gross Earnings ($)"}
   };
   
-  Plotly.newPlot("barPlot", data, layout);
+  Plotly.newPlot("barPlot", info, layout);
+
+
+
+// Filters Disney movies for adjusted-for-inflation gross earnings > $180,000,000
+function filterAdjustedEarnings(m) {
+    return m.Inflation_Adjusted_Gross > 180000000;
+  }
+  
+  var filteredMovies2 = data.filter(filterAdjustedEarnings);
+  
+  var adjusted_titles = filteredMovies2.map(m => m.Movie_Title);
+  
+  var adjusted_earnings = filteredMovies2.map(m => m.Inflation_Adjusted_Gross);
+
+
+// Bar graph for movies with highest adjusted-for-inflation gross earnings
+  var trace2 = {
+    x: adjusted_titles,
+    y: adjusted_earnings,
+    type: "bar"
+  };
+
+  var data2 = [trace2];
+
+  var layout2 = {
+    title: "The Highest Inflation-Adjusted Grossing Disney Movies",
+    xaxis: { title: "Movie Title" },
+    yaxis: { title: "Gross Earnings ($), Adjusted for Inflation"}
+  };
+
+  Plotly.newPlot("barPlot2", data2, layout2);
+ 
+
+
+// Genre Pie Chart using Chart.js
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Adventure', 'Drama', 'Comedy', 'Musical'],
+        datasets: [{
+            label: 'Disney Movie Genres',
+            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9"],
+            // Genre counts:{"0":"Musical","1":"Adventure","2":"Musical","3":"Drama","4":"Drama","5":"Drama","6":"Adventure","7":"Musical","8":"Musical","9":"Musical","10":"Adventure","11":"Comedy","12":"Adventure","13":"Adventure","14":"Adventure","15":"Adventure","16":"Adventure","17":"Musical","18":"Comedy","19":"Adventure","20":"Adventure","21":"Adventure","22":"Adventure","23":"Adventure","24":"Adventure","25":"Adventure","26":"Adventure","27":"Adventure","28":"Adventure","29":"Adventure","30":"Adventure","31":"Adventure","32":"Comedy","33":"Adventure","34":"Adventure","35":"Comedy","36":"Adventure","37":"Adventure","38":"Adventure","39":"Adventure","40":"Adventure","41":"Adventure","42":"Adventure","43":"Drama","44":"Adventure","45":"Adventure","46":"Adventure"},
+            data: [33, 4, 4 ,6]
+            }]
+        },
+
+    options: {
+        title: {
+            display: true,
+            text: 'Disney Movie Genres'
+          }
+    }
+});
