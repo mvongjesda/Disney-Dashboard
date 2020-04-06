@@ -9,7 +9,7 @@ function filterMovieEarnings(movie) {
   
   var earnings = filteredMovies.map(movies => movies.Total_Gross);
 
-// Movies with hight otal earnings bar chart
+// Generate bar chart using Plotly for movies with highest total earnings
   var trace = {
     x: titles,
     y: earnings,
@@ -40,7 +40,7 @@ function filterAdjustedEarnings(m) {
   var adjusted_earnings = filteredMovies2.map(m => m.Inflation_Adjusted_Gross);
 
 
-// Bar graph for movies with highest adjusted-for-inflation gross earnings
+// Generate bar graph for movies with highest adjusted-for-inflation gross earnings using Plotly
   var trace2 = {
     x: adjusted_titles,
     y: adjusted_earnings,
@@ -59,7 +59,7 @@ function filterAdjustedEarnings(m) {
  
 
 
-// Genre Pie Chart using Chart.js
+// Generate Genre Pie Chart using Chart.js
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
     type: 'pie',
