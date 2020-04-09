@@ -117,7 +117,16 @@ var chart = new Chart(ctx, {
     options: {
         title: {
             display: true,
-            text: 'Disney Movie Genres'
-          }
+            text: 'Disney Movie Genres',
+            fontColor: 'white',
+            fontSize: 40
+          },
+        legend: {
+            display: true,
+            labels: {
+                fontColor: 'white',
+                fontSize: 20
+            }
+        }
     }
 });
