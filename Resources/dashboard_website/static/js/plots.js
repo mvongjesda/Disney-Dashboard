@@ -15,10 +15,10 @@ function filterMovieEarnings(movie) {
     y: earnings,
     type: "bar", 
     marker: {
-      color: 'rgb(158,202,225)',
-      opacity: 0.6,
+      color: '20b2aa',
+      opacity: 0.8,
       line: {
-        color: 'rgb(8,48,107)',
+        color: '#14716c',
         width: 1.5
       }
     }
@@ -40,7 +40,7 @@ function filterMovieEarnings(movie) {
       t: 75,
       pad: 4
     },
-    paper_bgcolor: '#7f7f7f',
+    paper_bgcolor: '#fa8072',
     plot_bgcolor: '#c7c7c7'
   };
   
@@ -67,7 +67,7 @@ function filterAdjustedEarnings(m) {
     type: "bar",
     marker: {
       color: 'rgb(255,202,225)',
-      opacity: 0.6,
+      opacity: 1,
       line: {
         color: 'rgb(255,48,107)',
         width: 1.5
@@ -92,8 +92,8 @@ function filterAdjustedEarnings(m) {
       t: 75,
       pad: 4
     },
-    paper_bgcolor: '#7f7f7f',
-    plot_bgcolor: '#c7c7c7'
+    paper_bgcolor: '#fa8072', //'#7f7f7f'
+    plot_bgcolor: 'c7c7c7'   // '#c7c7c7'
   };
 
   Plotly.newPlot("barPlot2", data2, layout2);
@@ -108,7 +108,7 @@ var chart = new Chart(ctx, {
         labels: ['Adventure', 'Drama', 'Comedy', 'Musical'],
         datasets: [{
             label: 'Disney Movie Genres',
-            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9"],
+            backgroundColor: ["#fa8072", "#d02090","#20b2aa","	#FFFF00"],
             // Genre counts:{"0":"Musical","1":"Adventure","2":"Musical","3":"Drama","4":"Drama","5":"Drama","6":"Adventure","7":"Musical","8":"Musical","9":"Null","10":"Adventure","11":"Comedy","12":"Adventure","13":"Adventure","14":"Adventure","15":"Adventure","16":"Adventure","17":"Musical","18":"Comedy","19":"Adventure","20":"Adventure","21":"Adventure","22":"Adventure","23":"Adventure","24":"Adventure","25":"Adventure","26":"Adventure","27":"Adventure","28":"Adventure","29":"Adventure","30":"Adventure","31":"Adventure","32":"Comedy","33":"Adventure","34":"Adventure","35":"Comedy","36":"Adventure","37":"Adventure","38":"Adventure","39":"Adventure","40":"Adventure","41":"Adventure","42":"Adventure","43":"Drama","44":"Adventure","45":"Adventure","46":"Adventure"},drop null
             data: [33, 4, 4 ,5]
             }]
@@ -117,7 +117,16 @@ var chart = new Chart(ctx, {
     options: {
         title: {
             display: true,
-            text: 'Disney Movie Genres'
-          }
-    }
-});
+            text: 'Disney Movie Genres',
+            fontColor: 'white',
+            fontSize: 40
+          },
+        legend: {
+            display: true,
+            labels: {
+                fontColor: 'white',
+                fontSize: 20
+            }
+        }
+      }
+      });  
